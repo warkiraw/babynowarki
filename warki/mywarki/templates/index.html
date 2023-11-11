@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Кнопки с котиком и ракетой</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ff8c00; /* Ярко оранжевый фон */
+            margin: 0; /* Убираем отступы по умолчанию */
+        }
+
+        .container {
+            text-align: center;
+            position: relative; /* Добавляем позиционирование для дочерних элементов */
+        }
+
+        .btn {
+            border-radius: 50%; /* Делаем кнопки круглыми */
+            position: absolute; /* Позиционируем кнопки абсолютно внутри .container */
+            top: 50%;
+            transform: translateY(-50%); /* Центрируем кнопки вертикально */
+        }
+
+        #catButton {
+            left: 10px; /* Помещаем кота максимально слева */
+        }
+
+        #rocketButton {
+            right: 10px; /* Помещаем ракету максимально справа */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            position: absolute; /* Позиционируем изображения абсолютно внутри .container */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Центрируем изображения */
+            z-index: 1; /* Даем изображениям более низкий z-index, чтобы они были под кнопками */
+        }
+
+        #catImage {
+            z-index: 2; /* Даем котику более высокий z-index, чтобы он был над ракетой */
+        }
+
+        #rocketImage {
+            z-index: 2; /* Даем ракете такой же z-index, чтобы она была над котиком */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mb-4">Привет! Нажми на кнопку:</h1>
+
+    <!-- Кнопка с котиком -->
+    <button id="catButton" class="btn btn-primary btn-lg" onclick="showCat()">Покажи котика</button>
+
+    <!-- Кнопка с ракетой -->
+    <button id="rocketButton" class="btn btn-danger btn-lg" onclick="showRocket()">Запусти ракету</button>
+
+    <!-- Место для отображения изображений -->
+    <div id="imageContainer"></div>
+</div>
+
+<!-- Подключение Bootstrap JS и Popper.js (необходимо для некоторых Bootstrap-функций) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    // Функция для показа котика
+    function showCat() {
+        // Очищаем контейнер от предыдущего изображения
+        document.getElementById('imageContainer').innerHTML = '';
+        // Создаем изображение котика
+        var catImage = document.createElement('img');
+        catImage.src = 'https://placekitten.com/300/200'; // Используем placeholder с котиком
+        catImage.alt = 'Котик';
+        catImage.id = 'catImage'; // Устанавливаем id для управления z-index
+        // Добавляем изображение в контейнер
+        document.getElementById('imageContainer').appendChild(catImage);
+    }
+
+    // Функция для запуска ракеты
+    function showRocket() {
+        // Очищаем контейнер от предыдущего изображения
+        document.getElementById('imageContainer').innerHTML = '';
+        // Создаем изображение ракеты с анимацией
+        var rocketImage = document.createElement('img');
+        rocketImage.src = 'https://media.giphy.com/media/TGdLHu9W008GraygGe/giphy.gif';// Используем gif с анимацией ракеты
+        rocketImage.alt = 'Ракета';
+        rocketImage.id = 'rocketImage'; // Устанавливаем id для управления z-index
+        // Добавляем изображение в контейнер
+        document.getElementById('imageContainer').appendChild(rocketImage);
+    }
+</script>
+
+</body>
+</html>
