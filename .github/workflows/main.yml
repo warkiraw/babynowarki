@@ -19,8 +19,8 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: 167.172.171.254
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        username: warki
+        password: warki
         port: 22
         script: |
           cd babynowarki/warki
