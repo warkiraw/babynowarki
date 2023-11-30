@@ -23,7 +23,9 @@ jobs:
         password: ${{secrets.PASSWORD}}
         port: 22
         script: |
-          cd babynowarki/warki
+          su warki
+          cd ..
+          cd home/warki/babynowarki/warki
           source ./venv/bin/activate
           git pull
           python manage.py migrate
