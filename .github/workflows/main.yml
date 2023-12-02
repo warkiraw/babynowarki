@@ -33,8 +33,8 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: 22
         script: |
-          cd /warki/babynowarki/warki/
-          source /warki/babynowarki/warki/venv/bin/activate
+          cd babynowarki/warki/
+          source babynowarki/warki/venv/bin/activate
           git pull
           python manage.py migrate
           python manage.py collectstatic --noinput
