@@ -33,10 +33,9 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: 22
         script: |
-          cd babynowarki/
-          source venv/bin/activate
+          cd /warki/babynowarki/warki/
+          source /warki/babynowarki/warki/venv/bin/activate
           git pull
-          cd warki/
           python manage.py migrate
           python manage.py collectstatic --noinput
           supervisorctl restart all
