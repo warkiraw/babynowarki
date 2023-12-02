@@ -36,7 +36,6 @@ jobs:
           cd babynowarki/warki/
           source venv/bin/activate
           git pull
-          cd warki/
           python manage.py migrate
           python manage.py collectstatic --noinput
           supervisorctl restart all
