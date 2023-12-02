@@ -23,8 +23,6 @@ jobs:
         password: ${{secrets.PASSWORD}}
         port: 22
         script: |
-          su warki
-          cd ..
           cd home/warki/babynowarki/warki
           source ./venv/bin/activate
           git pull
