@@ -37,5 +37,4 @@ jobs:
           source venv/bin/activate
           git pull
           python manage.py migrate
-          python manage.py collectstatic --noinput
           supervisorctl restart all
